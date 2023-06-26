@@ -16,7 +16,6 @@ import axios from 'axios';
         axios.get(endpoint)
           .then(results => {
             this.projects = results.data.data;
-            console.log(this.projects);
           })
       }
     },
@@ -30,7 +29,15 @@ import axios from 'axios';
 </script>
 
 <template>
-
+  <main>
+    <h1>Projects</h1>
+    <ul>
+      <li
+        v-for="project in projects"
+        :key="project.id"
+      >{{ project.title }}</li>
+    </ul>
+  </main>
 </template>
 
 <style>
