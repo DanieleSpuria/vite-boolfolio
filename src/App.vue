@@ -1,8 +1,12 @@
 <script>
 import axios from 'axios';
+import ProjectCard from './components/ProjectCard.vue';
 
   export default {
     name: 'home',
+    components: {
+      ProjectCard
+    },
 
     data() {
       return {
@@ -30,16 +34,27 @@ import axios from 'axios';
 
 <template>
   <main>
-    <h1>Projects</h1>
-    <ul>
-      <li
-        v-for="project in projects"
-        :key="project.id"
-      >{{ project.title }}</li>
-    </ul>
+    <div class="container">
+      <h1>Projects</h1>
+      <div class="row">
+        <ProjectCard
+          v-for="project in projects"
+          :key="project.id"
+          :project="project"
+        />
+      </div>
+    </div>
   </main>
 </template>
 
-<style>
+<style lang="scss">
+  .container {
+    width: 80%;
+    margin: 0 auto;
 
+      .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 </style>
