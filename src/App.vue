@@ -11,7 +11,8 @@ import ProjectCard from './components/ProjectCard.vue';
     data() {
       return {
         url: 'http://127.0.0.1:8000/api/',
-        projects: []
+        projects: [],
+        links: []
       }
     },
 
@@ -20,6 +21,8 @@ import ProjectCard from './components/ProjectCard.vue';
         axios.get(endpoint)
           .then(results => {
             this.projects = results.data.data;
+            this.links = results.data.links;
+            console.log(this.links);
           })
       }
     },
@@ -43,6 +46,12 @@ import ProjectCard from './components/ProjectCard.vue';
           :project="project"
         />
       </div>
+      <button
+        v-for="(link, index) in links"
+        :key="index"
+        v-html="link.label"
+        @click="api(link.url)"
+      ></button>
     </div>
   </main>
 </template>
