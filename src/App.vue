@@ -51,6 +51,7 @@ import ProjectCard from './components/ProjectCard.vue';
         :key="index"
         v-html="link.label"
         @click="api(link.url)"
+        :disabled="link.active || !link.url"
       ></button>
     </div>
   </main>
