@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import {store} from './store/store';
 import ProjectCard from './components/ProjectCard.vue';
 
   export default {
@@ -10,7 +11,6 @@ import ProjectCard from './components/ProjectCard.vue';
 
     data() {
       return {
-        url: 'http://127.0.0.1:8000/api/',
         projects: [],
         links: []
       }
@@ -28,7 +28,7 @@ import ProjectCard from './components/ProjectCard.vue';
     },
 
     mounted() {
-      this.api(this.url + 'projects');
+      this.api(store.url + 'projects');
     }
     
     
