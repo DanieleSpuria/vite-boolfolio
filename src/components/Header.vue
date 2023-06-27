@@ -22,9 +22,9 @@
     color: black;
     text-decoration: none;
 
-    &:hover, &.active {
-      color: blue;
+      &:hover, &.active {
+        color: blue;
+      }
     }
-  }
   }
 </style>

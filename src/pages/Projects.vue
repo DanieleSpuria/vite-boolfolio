@@ -61,7 +61,7 @@ import ProjectCard from '../components/ProjectCard.vue';
   <h1>Projects</h1>
 
   <div class="badge-box">
-    <div class="row">
+    <div class="badge-line">
       <h3>Types:</h3>
       <span
         v-for="type in types"
@@ -70,7 +70,7 @@ import ProjectCard from '../components/ProjectCard.vue';
       >{{ type.name }}</span> 
     </div>
 
-    <div class="row">
+    <div class="badge-line">
       <h3>Technologies:</h3>
       <span
         v-for="technology in technologies"
@@ -88,13 +88,15 @@ import ProjectCard from '../components/ProjectCard.vue';
     />
   </div>
 
-  <button
-    v-for="(link, index) in links"
-    :key="index"
-    v-html="link.label"
-    @click="api(link.url)"
-    :disabled="link.active || !link.url"
-  ></button>
+  <div class="button-box">
+    <button
+      v-for="(link, index) in links"
+      :key="index"
+      v-html="link.label"
+      @click="projectsApi(link.url)"
+      :disabled="link.active || !link.url"
+    ></button>
+  </div>
 </template>
 
 
@@ -107,6 +109,11 @@ import ProjectCard from '../components/ProjectCard.vue';
   h3 {
       display: inline-block;
     }
+
+.badge-line {
+  display: flex;
+  align-items: center;
+}
 
   .badge {
     display: inline-block;
@@ -134,7 +141,17 @@ import ProjectCard from '../components/ProjectCard.vue';
   .row {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+  }
 
+  .button-box {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+     button {
+      padding: 6px 10px;
+      font-size: 19px;
+      cursor: pointer;
+    }
   }
 </style>
