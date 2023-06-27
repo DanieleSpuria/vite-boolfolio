@@ -12,22 +12,40 @@ import ProjectCard from '../components/ProjectCard.vue';
     data() {
       return {
         projects: [],
-        links: []
+        links: [],
+        types: [],
+        technologies: []
       }
     },
 
     methods: {
-      api(endpoint) {
+      projectsApi(endpoint) {
         axios.get(endpoint)
-          .then(results => {
-            this.projects = results.data.data;
-            this.links = results.data.links;
+          .then(result => {
+            this.projects = result.data.data;
+            this.links = result.data.links;
+          })
+      },
+
+      typeApi(endpoint) {
+        axios.get(endpoint)
+          .then(result => {
+            this.types = result.data;
+          })
+      },
+
+      technologiesApi(endpoint) {
+        axios.get(endpoint)
+          .then(result => {
+            this.technologies = result.data;
           })
       }
     },
 
     mounted() {
-      this.api(store.url + 'projects');
+      this.projectsApi(store.url + 'projects');
+      this.typeApi(store.url + 'projects/types');
+      this.technologiesApi(store.url + 'projects/technologies');
     }
   }     
 </script>
@@ -54,5 +72,5 @@ import ProjectCard from '../components/ProjectCard.vue';
   .row {
   display: flex;
   flex-wrap: wrap;
-}
+  }
 </style>
