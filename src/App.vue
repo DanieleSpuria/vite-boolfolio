@@ -1,15 +1,30 @@
 <script>
+  import Header from './components/Header.vue';
+
   export default {
-    name: 'app'
+    name: 'app',
+
+    components: {
+      Header
+    }
   }     
 </script>
 
 <template>
   <main>
-    <router-view></router-view>
+    <div class="container">
+      <Header></Header>
+      <router-view></router-view>
+    </div>
   </main>
 </template>
 
 <style lang="scss">
+  main{
 
+    .container{
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
 </style>
