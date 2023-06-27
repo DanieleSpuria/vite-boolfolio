@@ -50,8 +50,36 @@ import ProjectCard from '../components/ProjectCard.vue';
   }     
 </script>
 
+
+
+
+
+
+
+
 <template>
   <h1>Projects</h1>
+
+  <div class="badge-box">
+    <div class="row">
+      <h3>Types:</h3>
+      <span
+        v-for="type in types"
+        :key="type.id"
+        class="badge badge-type"
+      >{{ type.name }}</span> 
+    </div>
+
+    <div class="row">
+      <h3>Technologies:</h3>
+      <span
+        v-for="technology in technologies"
+        :key="technology.id"
+        class="badge badge-technology"
+      >{{ technology.name }}</span>
+    </div>
+  </div>
+
   <div class="row">
     <ProjectCard
       v-for="project in projects"
@@ -59,6 +87,7 @@ import ProjectCard from '../components/ProjectCard.vue';
       :project="project"
     />
   </div>
+
   <button
     v-for="(link, index) in links"
     :key="index"
@@ -68,9 +97,43 @@ import ProjectCard from '../components/ProjectCard.vue';
   ></button>
 </template>
 
+
+
+
+
+
+
 <style lang="scss" scoped>
+  h3 {
+      display: inline-block;
+    }
+
+  .badge {
+    display: inline-block;
+    margin: 7px;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  .badge-type {
+    background-color: orange;
+    border-radius: 20px;
+  }
+
+  .badge-technology {
+    background-color: green;
+    border-radius: 20px;
+  }
+
   .row {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
   }
 </style>
