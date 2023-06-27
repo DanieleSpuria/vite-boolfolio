@@ -21,7 +21,7 @@ import ProjectCard from '../components/ProjectCard.vue';
     methods: {
       projectsApi(endpoint) {
         axios.get(endpoint)
-          .then(result => {
+        .then(result => {
             this.projects = result.data.data;
             this.links = result.data.links;
           })
@@ -39,6 +39,10 @@ import ProjectCard from '../components/ProjectCard.vue';
           .then(result => {
             this.technologies = result.data;
           })
+      },
+
+      typeTechnogiesApi(id) {
+        this.projectsApi(store.url + 'projects/types_technologies/' + id);
       }
     },
 
@@ -66,6 +70,7 @@ import ProjectCard from '../components/ProjectCard.vue';
       <span
         v-for="type in types"
         :key="type.id"
+        @click="typeTechnogiesApi(type.id)"
         class="badge badge-type"
       >{{ type.name }}</span> 
     </div>
