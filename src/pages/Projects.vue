@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios';
-import {store} from './store/store';
-import ProjectCard from './components/ProjectCard.vue';
+import {store} from '../store/store';
+import ProjectCard from '../components/ProjectCard.vue';
 
   export default {
     name: 'projects',
