@@ -4,7 +4,7 @@ import {store} from './store/store';
 import ProjectCard from './components/ProjectCard.vue';
 
   export default {
-    name: 'home',
+    name: 'projects',
     components: {
       ProjectCard
     },
@@ -53,7 +53,7 @@ import ProjectCard from './components/ProjectCard.vue';
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .container {
     width: 80%;
     margin: 0 auto;
