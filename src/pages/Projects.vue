@@ -115,8 +115,9 @@ import ProjectCard from '../components/ProjectCard.vue';
     color: white;
     cursor: pointer;
 
-    &:hover {
+    &:hover, &.active {
       color: black;
+      background-color: red;
     }
   }
 

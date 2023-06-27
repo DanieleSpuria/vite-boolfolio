@@ -22,7 +22,7 @@
     color: black;
     text-decoration: none;
 
-    &:hover {
+    &:hover, &.active {
       color: blue;
     }
   }
