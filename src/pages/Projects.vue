@@ -23,7 +23,7 @@ import ProjectCard from '../components/ProjectCard.vue';
         axios.get(endpoint)
         .then(result => {
             this.projects = result.data.projects.data;
-            this.links = result.data.projects.link;
+            this.links = result.data.projects.links;
             this.types = result.data.types;
             this.technologies = result.data.technologies;
           })
@@ -106,10 +106,10 @@ import ProjectCard from '../components/ProjectCard.vue';
       display: inline-block;
     }
 
-.badge-line {
-  display: flex;
-  align-items: center;
-}
+  .badge-line {
+    display: flex;
+    align-items: center;
+  }
 
   .badge {
     display: inline-block;
