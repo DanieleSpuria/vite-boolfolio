@@ -50,7 +50,7 @@
 
   <img
     v-if="project.image_path"
-    :src="store.urlImage + project.image_path"
+    :src="project.image_path"
     :alt="project.image_name"
   >
 
