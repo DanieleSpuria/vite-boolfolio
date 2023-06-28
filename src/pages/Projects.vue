@@ -41,8 +41,12 @@ import ProjectCard from '../components/ProjectCard.vue';
           })
       },
 
-      typeTechnogiesApi(id) {
-        this.projectsApi(store.url + 'projects/types_technologies/' + id);
+      getTypesApi(id) {
+        this.projectsApi(store.url + 'projects/types/' + id);
+      },
+
+      getTechnologiesApi(id) {
+        this.projectsApi(store.url + 'projects/technologies/' + id);
       }
     },
 
@@ -70,7 +74,7 @@ import ProjectCard from '../components/ProjectCard.vue';
       <span
         v-for="type in types"
         :key="type.id"
-        @click="typeTechnogiesApi(type.id)"
+        @click="getTypesApi(type.id)"
         class="badge badge-type"
       >{{ type.name }}</span> 
     </div>
@@ -80,6 +84,7 @@ import ProjectCard from '../components/ProjectCard.vue';
       <span
         v-for="technology in technologies"
         :key="technology.id"
+        @click="getTechnologiesApi(technology.id)"
         class="badge badge-technology"
       >{{ technology.name }}</span>
     </div>
