@@ -48,9 +48,11 @@
 
   <span>{{ project.date }}</span>
 
-  <img :src="store.urlImage + project.image_path" :alt="project.image_name">
-
-  {{ project.image_path }}
+  <img
+    v-if="project.image_path"
+    :src="store.urlImage + project.image_path"
+    :alt="project.image_name"
+  >
 
   <p>{{ project.description }}</p>
 
