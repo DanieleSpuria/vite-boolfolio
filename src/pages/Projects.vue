@@ -39,6 +39,7 @@ import ProjectCard from '../components/ProjectCard.vue';
     },
 
     mounted() {
+      store.loaded = false;
       this.projectsApi(store.url + 'projects');
     }
   }     
@@ -111,28 +112,7 @@ import ProjectCard from '../components/ProjectCard.vue';
     align-items: center;
   }
 
-  .badge {
-    display: inline-block;
-    margin: 7px;
-    padding: 5px 10px;
-    color: white;
-    cursor: pointer;
-
-    &:hover, &.active {
-      color: black;
-      background-color: red;
-    }
-  }
-
-  .badge-type {
-    background-color: orange;
-    border-radius: 20px;
-  }
-
-  .badge-technology {
-    background-color: green;
-    border-radius: 20px;
-  }
+  
 
   .row {
     display: flex;

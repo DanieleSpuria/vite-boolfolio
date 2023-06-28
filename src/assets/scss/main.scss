@@ -11,3 +11,26 @@ body {
 h1 {
   text-align: center;
 }
+
+.badge {
+  display: inline-block;
+  margin: 7px;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+
+  &:hover, &.active {
+    color: black;
+    background-color: red;
+  }
+}
+
+.badge-type {
+  background-color: orange;
+  border-radius: 20px;
+}
+
+.badge-technology {
+  background-color: green;
+  border-radius: 20px;
+}
