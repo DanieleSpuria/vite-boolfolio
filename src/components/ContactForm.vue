@@ -1,4 +1,7 @@
 <script>
+  import axios from 'axios';
+  import {store} from '../store/store';
+
   export default {
     name: 'ContactForm',
     
@@ -17,8 +20,10 @@
           email: this.email,
           text: this.text 
         }
-
-        console.log(data);
+        axios.post(store.url + 'contacts/', data)
+          .then(result => {
+            console.log(result);
+          })
       }
     }
   }
